@@ -1,40 +1,27 @@
-# Build directories
+# Ignore Visual Studio files
+.vs/
+*.vcxproj.user
+*.suo
+*.VC.db
+*.VC.opendb
+
+# Ignore build files
 /Debug/
 /Release/
 /x64/
 /x86/
 
-# Visual Studio files
-.vs/
-*.vcxproj.user
-*.suo
-*.ipch
-*.VC.db
-*.VC.opendb
-
-# Build artifacts
-*.obj
-*.pdb
-*.idb
-*.exe
-*.dll
-*.lib
-*.o
-*.a
-
-# External dependencies
-.vs/
+# Ignore dependencies
 include/glm/
 include/glad/
 src/glad.c
-
 
 # OS-specific files
 Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Logs and temporary files
+# Temporary and cache files
 *.log
 *.tmp
 *.cache
