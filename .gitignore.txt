@@ -1,0 +1,41 @@
+# Build directories
+/Debug/
+/Release/
+/x64/
+/x86/
+
+# Visual Studio files
+.vs/
+*.vcxproj.user
+*.suo
+*.ipch
+*.VC.db
+*.VC.opendb
+
+# Build artifacts
+*.obj
+*.pdb
+*.idb
+*.exe
+*.dll
+*.lib
+*.o
+*.a
+
+# External dependencies
+.vs/
+include/glm/
+include/glad/
+src/glad.c
+
+
+# OS-specific files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+*.bak
