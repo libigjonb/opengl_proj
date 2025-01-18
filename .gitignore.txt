@@ -1,28 +1,22 @@
-# Ignore Visual Studio files
+# Build files
+x64/
+*.obj
+*.pdb
+*.exe
+*.ilk
+*.idb
+
+# Visual Studio temporary files
 .vs/
-*.vcxproj.user
-*.suo
 *.VC.db
 *.VC.opendb
 
-# Ignore build files
-/Debug/
-/Release/
-/x64/
-/x86/
-
-# Ignore dependencies
-include/glm/
-include/glad/
-src/glad.c
+# User-specific files
+*.user
 
 # OS-specific files
 Thumbs.db
-Desktop.ini
 .DS_Store
 
-# Temporary and cache files
-*.log
-*.tmp
-*.cache
-*.bak
+# Large files (optional)
+*.ipch
