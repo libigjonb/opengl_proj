@@ -1,3 +1,2 @@
-﻿  main.cpp
-C:\Users\libur\Desktop\learnopengl_tut\learnopengl_tut\main.cpp(129,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  Shader.cpp
   learnopengl_tut.vcxproj -> C:\Users\libur\Desktop\learnopengl_tut\x64\Debug\learnopengl_tut.exe
