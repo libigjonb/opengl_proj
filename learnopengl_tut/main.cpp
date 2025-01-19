@@ -54,12 +54,13 @@ int main()
     };
 
 
+    stbi_set_flip_vertically_on_load(true);
 
     int width, height, nrChannels;
     unsigned char* data = stbi_load("C:/Users/libur/Desktop/learnopengl_tut/textures/wooden_container.jpg", &width, &height, &nrChannels, 0);
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    unsigned int texture1;
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -72,6 +73,21 @@ int main()
     stbi_image_free(data);
 
 
+    int width2, height2, nrChannels2;
+    unsigned char* data2 = stbi_load("C:/Users/libur/Desktop/learnopengl_tut/textures/awesomeface.png", &width2, &height2, &nrChannels2, 0);
+    unsigned int texture2;
+    glGenTextures(1, &texture2);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+    if (data2)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width2, height2, 0, GL_RGBA, GL_UNSIGNED_BYTE, data2);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data2);
 
     unsigned int VBO;
     glGenBuffers(1, &VBO);
@@ -100,6 +116,9 @@ int main()
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
+    ourShader.use(); // don't forget to activate the shader before setting uniforms!  
+    glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0); // set it manually
+    ourShader.setInt("texture2", 1); // or with shader class
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -114,7 +133,10 @@ int main()
         float greenValue = sin(timeValue) / 2.0f + 0.5f;
         //int vertexColorLocation = glGetUniformLocation(ourShader(), "ourColor");
         //glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-        glBindTexture(GL_TEXTURE_2D, texture);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture2);
         glBindVertexArray(VAO);
         //glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
