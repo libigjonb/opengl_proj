@@ -2,8 +2,12 @@
 #include <GLFW/glfw3.h>
 #include<iostream>
 #include"Shader.h"
-//#include "stb_image.h"
 #include "Texture.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 {
     glViewport(0, 0, width, height);
@@ -84,10 +88,11 @@ int main()
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
+
     ourShader.use(); 
     glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0); 
     ourShader.setInt("texture2", 1); 
-
+    
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -102,6 +107,14 @@ int main()
         float greenValue = sin(timeValue) / 2.0f + 0.5f;
         //int vertexColorLocation = glGetUniformLocation(ourShader(), "ourColor");
         //glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        
+
+        glm::mat4 trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+        trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
         texture1.bind(0);
         texture2.bind(1);
         
