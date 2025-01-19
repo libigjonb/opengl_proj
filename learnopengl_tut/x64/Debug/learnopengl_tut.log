@@ -1,4 +1,3 @@
 ﻿  main.cpp
-C:\Users\libur\Desktop\learnopengl_tut\learnopengl_tut\main.cpp(106,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+C:\Users\libur\Desktop\learnopengl_tut\learnopengl_tut\main.cpp(115,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   learnopengl_tut.vcxproj -> C:\Users\libur\Desktop\learnopengl_tut\x64\Debug\learnopengl_tut.exe
