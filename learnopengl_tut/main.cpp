@@ -173,12 +173,12 @@ int main()
         glUniformMatrix4fv(modelLoc1, 1, GL_FALSE, glm::value_ptr(view));
         int modelLoc2 = glGetUniformLocation(ourShader.ID, "projection");
         glUniformMatrix4fv(modelLoc2, 1, GL_FALSE, glm::value_ptr(projection));
-        glm::mat4 trans = glm::mat4(1.0f);
+        /*glm::mat4 trans = glm::mat4(1.0f);
         trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
         trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
         unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
-        
+        */
         for (unsigned int i = 0; i < 10; i++)
         {
             glm::mat4 model = glm::mat4(1.0f);
